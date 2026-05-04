@@ -1,3 +1,121 @@
 [gd_scene format=3 uid="uid://45a7f05n5gju"]
 
-[node name="MainMenu" type="Node2D" unique_id=620191667]
+[ext_resource type="Texture2D" uid="uid://d2ji24121wnuc" path="res://assets/sprites/mainMenuBackground.png" id="1_7kwte"]
+[ext_resource type="Texture2D" uid="uid://dpdcy7ukk20sy" path="res://assets/sprites/playResized.png" id="2_cyivw"]
+[ext_resource type="FontFile" uid="uid://bj86d6r66gb81" path="res://assets/fonts/Oups_Clean.otf" id="3_cse14"]
+[ext_resource type="Texture2D" uid="uid://ygigu3dl01tq" path="res://assets/sprites/settingsResized.png" id="3_cyivw"]
+[ext_resource type="Texture2D" uid="uid://c4tesl1e1jotc" path="res://assets/sprites/exitResized.png" id="4_cse14"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_s5o6v"]
+font = ExtResource("3_cse14")
+font_size = 24
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pacxi"]
+font = ExtResource("3_cse14")
+font_size = 18
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vsctn"]
+font = ExtResource("3_cse14")
+font_size = 18
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" unique_id=1481558376]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="TextureRect" parent="." unique_id=1159673436]
+texture_filter = 1
+layout_mode = 0
+offset_left = 294.0
+offset_top = 14.0
+offset_right = 806.0
+offset_bottom = 526.0
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("1_7kwte")
+
+[node name="playButton" type="TextureButton" parent="Panel" unique_id=1754442228]
+texture_filter = 1
+layout_mode = 0
+offset_left = 155.0
+offset_top = 193.0
+offset_right = 270.55554
+offset_bottom = 270.77783
+scale = Vector2(1.8, 1.4)
+texture_normal = ExtResource("2_cyivw")
+ignore_texture_size = true
+
+[node name="playLabel" type="Label" parent="Panel/playButton" unique_id=700266636]
+texture_filter = 1
+layout_mode = 0
+offset_left = 27.057611
+offset_top = 21.93121
+offset_right = 91.66668
+offset_bottom = 53.93121
+text = "play!"
+label_settings = SubResource("LabelSettings_s5o6v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="settingsButton" type="TextureButton" parent="Panel" unique_id=1511297770]
+texture_filter = 1
+layout_mode = 0
+offset_left = 160.0
+offset_top = 360.741
+offset_right = 249.62964
+offset_bottom = 413.741
+scale = Vector2(2.2, 1.15)
+texture_normal = ExtResource("3_cyivw")
+ignore_texture_size = true
+
+[node name="settingsLabel" type="Label" parent="Panel/settingsButton" unique_id=1110723941]
+texture_filter = 1
+layout_mode = 0
+offset_left = 5.7239056
+offset_top = 10.305722
+offset_right = 84.84848
+offset_bottom = 47.66482
+text = "Settings"
+label_settings = SubResource("LabelSettings_pacxi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="exitButton" type="TextureButton" parent="Panel" unique_id=958160898]
+texture_filter = 1
+layout_mode = 0
+offset_left = 160.0
+offset_top = 423.704
+offset_right = 250.37036
+offset_bottom = 477.5312
+scale = Vector2(2.2, 1.15)
+texture_normal = ExtResource("4_cse14")
+ignore_texture_size = true
+
+[node name="exitLabel" type="Label" parent="Panel/exitButton" unique_id=1122139434]
+texture_filter = 1
+layout_mode = 0
+offset_left = 23.905724
+offset_top = 15.458662
+offset_right = 63.905724
+offset_bottom = 38.458656
+text = "EXIT"
+label_settings = SubResource("LabelSettings_vsctn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Panel" unique_id=1905075139]
+layout_mode = 0
+offset_left = 25.925926
+offset_top = 49.629627
+offset_right = 237.92593
+offset_bottom = 104.62962
+theme_override_font_sizes/font_size = 40
+text = "TITLE HERE"
