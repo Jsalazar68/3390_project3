@@ -1,0 +1,7 @@
+{
+  "comment": "Place holders",
+  
+  "easy": ["cat", "dog", "sun", "run"],
+  "medium": ["planet", "typing", "school"],
+  "hard": ["algorithm", "repository", "synchronize"]
+}

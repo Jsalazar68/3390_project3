@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://14qs3t7tayrs"]
+
+[ext_resource type="Script" uid="uid://m6ckopw27sus" path="res://scripts/gameplay/game.gd" id="1_6piwi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ogclv"]
+
+[node name="Game" type="Node2D" unique_id=326260338]
+script = ExtResource("1_6piwi")
+
+[node name="word_display" type="Label" parent="." unique_id=1271899182]
+offset_left = 537.0
+offset_top = 396.0
+offset_right = 611.0
+offset_bottom = 419.0
+
+[node name="input" type="LineEdit" parent="." unique_id=1261225378]
+offset_left = 526.0
+offset_top = 424.0
+offset_right = 594.5
+offset_bottom = 455.0
+
+[node name="Timer" type="Timer" parent="." unique_id=1889213621]
+wait_time = 30.0
+one_shot = true
+autostart = true
+
+[node name="game_Over" type="Control" parent="." unique_id=230745206]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 546.0
+offset_top = 323.0
+offset_right = 586.0
+offset_bottom = 363.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="score_display" type="Control" parent="game_Over" unique_id=598079166]
+anchors_preset = 0
+offset_top = -80.0
+offset_right = 40.0
+offset_bottom = -40.0
+
+[node name="score_num" type="Label" parent="game_Over/score_display" unique_id=1039473088]
+layout_mode = 0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = -17.0
+
+[node name="submit_button" type="Button" parent="game_Over" unique_id=1621105280]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.21000001
+anchor_top = -0.21700001
+offset_left = 88.4
+offset_top = 88.68
+offset_right = 88.0
+offset_bottom = 88.0
+
+[node name="reset_button" type="Button" parent="game_Over" unique_id=1559618698]
+layout_mode = 0
+offset_left = -80.0
+offset_top = 80.0
+offset_right = -72.0
+offset_bottom = 88.0
+
+[node name="nameInput" type="LineEdit" parent="game_Over" unique_id=1110168645]
+layout_mode = 0
+offset_top = 20.0
+offset_right = 68.5
+offset_bottom = 51.0
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1128164032]
+position = Vector2(576, 580)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=232162859]
+position = Vector2(5, 31)
+shape = SubResource("RectangleShape2D_ogclv")
+
+[node name="ColorRect" type="ColorRect" parent="Player" unique_id=1475742988]
+offset_left = -54.0
+offset_top = 29.0
+offset_right = -14.0
+offset_bottom = 69.0
+
+[node name="bulletSpawn" type="Node2D" parent="." unique_id=2084958358]
+position = Vector2(576, 540)
+
+[node name="EnemyContainer" type="Node2D" parent="." unique_id=1023679275]
+
+[node name="SpawnContainer" type="Node2D" parent="." unique_id=1605096430]
+
+[node name="Spawn1" type="Node2D" parent="SpawnContainer" unique_id=200303936]
+position = Vector2(250, 80)
+
+[node name="Spawn2" type="Node2D" parent="SpawnContainer" unique_id=1582793130]
+position = Vector2(575, 80)
+
+[node name="Spawn3" type="Node2D" parent="SpawnContainer" unique_id=300093000]
+position = Vector2(900, 80)
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=66224835]
+autostart = true
+
+[connection signal="text_submitted" from="input" to="." method="_on_input_text_submitted"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="game_Over/submit_button" to="." method="_on_submit_button_pressed"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
