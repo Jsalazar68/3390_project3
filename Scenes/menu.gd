@@ -5,7 +5,7 @@ func _ready():
 	
 func _process(delta):
 	pass
-	#sup
+	#hi new message
 func _on_start_pressed():
 	get_tree().change_scene_to_file("res://Scenes/Game.tscn")
 	
