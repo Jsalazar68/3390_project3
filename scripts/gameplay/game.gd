@@ -6,7 +6,7 @@ var count: int = 0;
 @onready var player = $Player
 
 @onready var bullet_spawn = $Player/bulletSpawn
-var bullet_scene = preload("res://scripts/gameplay/bullet.gd")
+var bullet_scene = preload("res://scenes/game/Bullet.tscn")
 
 func shoot():
 	print("SHOOT CALLED")
