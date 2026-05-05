@@ -5,7 +5,7 @@ var current_word = ""
 var count: int = 0;
 @onready var player = $Player
 
-@onready var bullet_spawn = $bulletSpawn
+@onready var bullet_spawn = $Player/bulletSpawn
 var bullet_scene = preload("res://Scenes/Bullet.tscn")
 
 func shoot():
@@ -15,7 +15,7 @@ func shoot():
 	print("Bullet created:", bullet)
 	
 	get_tree().current_scene.add_child(bullet)
-	bullet.global_position = $bulletSpawn.global_position
+	bullet.global_position = $Player/bulletSpawn.global_position
 
 
 func _ready():

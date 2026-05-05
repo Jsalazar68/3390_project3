@@ -113,8 +113,8 @@ offset_top = -24.0
 offset_right = 32.0
 offset_bottom = 25.0
 
-[node name="bulletSpawn" type="Marker2D" parent="." unique_id=1512269856]
-position = Vector2(562, 518)
+[node name="bulletSpawn" type="Marker2D" parent="Player" unique_id=1954747163]
+position = Vector2(2, -37)
 
 [connection signal="text_submitted" from="input" to="." method="_on_input_text_submitted"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
