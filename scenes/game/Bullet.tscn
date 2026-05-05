@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c2fl0mpdhxjbu"]
 
-[ext_resource type="Script" uid="uid://ctsosnewq47v5" path="res://Scenes/bullet.gd" id="1_vlxeq"]
+[ext_resource type="Script" uid="uid://ctsosnewq47v5" path="res://scripts/gameplay/bullet.gd" id="1_vlxeq"]
 
 [node name="Bullet" type="Area2D" unique_id=2038589410]
 position = Vector2(158, 81)

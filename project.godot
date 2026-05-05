@@ -19,6 +19,17 @@ config/icon="res://icon.svg"
 
 Network="*uid://kdjcuv2cw2sj"
 
+[file_customization]
+
+folder_colors={
+"res://assets/": "red",
+"res://audio/": "orange",
+"res://data/": "yellow",
+"res://scenes/": "purple",
+"res://scripts/": "pink",
+"res://ui/": "gray"
+}
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
