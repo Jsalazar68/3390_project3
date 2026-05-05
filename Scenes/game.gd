@@ -65,9 +65,9 @@ func _on_timer_timeout() -> void:
 	score_node.text = str(count)
 	$game_Over.visible = true
 	
-func _input(event):
-	if event.is_action_pressed("left") or event.is_action_pressed("right"):
-		return
+#func _moveinput(event):
+	#if event.is_action_pressed("left") or event.is_action_pressed("right"):
+		#return
 
 func _on_submit_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Score.tscn")
