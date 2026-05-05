@@ -6,6 +6,10 @@ var count: int = 0;
 
 @onready var player = $Player
 @onready var bullet_spawn = $bulletSpawn
+@onready var enemy_container = $EnemyContainer
+@onready var spawn_container = $SpawnContainer
+
+var enemy_scene = preload("res://scenes (game screens)/game/enemy.tscn")
 var bullet_scene = preload("res://scenes (game screens)/game/bullet.tscn")
 
 func shoot():
@@ -66,3 +70,17 @@ func _on_timer_timeout() -> void:
 
 func _on_submit_button_pressed() -> void:
 	pass
+
+
+func spawn_enemy():
+	var enemy = enemy_scene.instantiate()
+
+	var spawns = spawn_container.get_children()
+	var spawn_point = spawns[randi() % spawns.size()]
+
+	enemy.global_position = spawn_point.global_position
+	enemy_container.add_child(enemy)
+
+
+func _on_spawn_timer_timeout() -> void:
+	spawn_enemy()

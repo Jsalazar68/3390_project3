@@ -89,6 +89,23 @@ offset_bottom = 69.0
 [node name="bulletSpawn" type="Node2D" parent="." unique_id=2084958358]
 position = Vector2(576, 540)
 
+[node name="EnemyContainer" type="Node2D" parent="." unique_id=1023679275]
+
+[node name="SpawnContainer" type="Node2D" parent="." unique_id=1605096430]
+
+[node name="Spawn1" type="Node2D" parent="SpawnContainer" unique_id=200303936]
+position = Vector2(250, 80)
+
+[node name="Spawn2" type="Node2D" parent="SpawnContainer" unique_id=1582793130]
+position = Vector2(575, 80)
+
+[node name="Spawn3" type="Node2D" parent="SpawnContainer" unique_id=300093000]
+position = Vector2(900, 80)
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=66224835]
+autostart = true
+
 [connection signal="text_submitted" from="input" to="." method="_on_input_text_submitted"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="game_Over/submit_button" to="." method="_on_submit_button_pressed"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
