@@ -6,7 +6,7 @@ var count: int = 0;
 @onready var player = $Player
 
 @onready var bullet_spawn = $bulletSpawn
-var bullet_scene = preload("res://Scenes/Bullet.tscn")
+var bullet_scene = preload("res://scenes (game screens)/game/Bullet.tscn")
 
 func shoot():
 	print("SHOOT CALLED")
@@ -70,6 +70,6 @@ func _on_timer_timeout() -> void:
 		#return
 
 func _on_submit_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/Score.tscn")
+	get_tree().change_scene_to_file("res://scenes (game screens)/game/Score.tscn")
 	var name = $game_Over/nameInput.text
 	Network.send_score(name, count)

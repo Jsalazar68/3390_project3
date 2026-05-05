@@ -24,8 +24,8 @@ Network="*uid://kdjcuv2cw2sj"
 folder_colors={
 "res://assets/": "red",
 "res://audio/": "orange",
-"res://data (JSON, tables)/": "yellow",
-"res://scenes (game screens)/": "purple",
+"res://data/": "yellow",
+"res://scenes/": "purple",
 "res://scripts/": "pink",
 "res://ui/": "gray"
 }
