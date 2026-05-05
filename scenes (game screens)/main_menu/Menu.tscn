@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://elgxm7swskw8"]
 
-[ext_resource type="Script" uid="uid://bwxc2tesg67bc" path="res://Scenes/menu.gd" id="1_3kf3n"]
+[ext_resource type="Script" uid="uid://bwxc2tesg67bc" path="res://scripts/gameplay/menu.gd" id="1_2df44"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3kf3n"]
 corner_radius_top_left = 15
@@ -19,7 +19,7 @@ offset_right = 284.0
 offset_bottom = 330.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_3kf3n")
+script = ExtResource("1_2df44")
 
 [node name="Button" type="Button" parent="." unique_id=1326167272]
 layout_mode = 1

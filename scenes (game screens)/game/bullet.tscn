@@ -1,15 +1,15 @@
-[gd_scene format=3 uid="uid://4soo8ukyebbo"]
+[gd_scene format=3 uid="uid://c2fl0mpdhxjbu"]
 
-[ext_resource type="Script" uid="uid://bs6ilvpgbhxt2" path="res://scripts/gameplay/bullet.gd" id="1_aajvq"]
+[ext_resource type="Script" uid="uid://ctsosnewq47v5" path="res://scripts/gameplay/bullet.gd" id="1_vlxeq"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h1jbi"]
+[node name="Bullet" type="Area2D" unique_id=2038589410]
+position = Vector2(158, 81)
+script = ExtResource("1_vlxeq")
 
-[node name="Bullet" type="Area2D" unique_id=1478322590]
-script = ExtResource("1_aajvq")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1454194124]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=53104112]
-shape = SubResource("RectangleShape2D_h1jbi")
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1369838084]
-offset_right = 10.0
-offset_bottom = 10.0
+[node name="ColorRect" type="ColorRect" parent="." unique_id=126209896]
+offset_left = -20.0
+offset_top = -16.0
+offset_right = 17.0
+offset_bottom = 21.0

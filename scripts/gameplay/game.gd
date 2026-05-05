@@ -3,21 +3,17 @@ extends Node2D
 var words = ["apple", "banana", "cat"]
 var current_word = ""
 var count: int = 0;
-
 @onready var player = $Player
-@onready var bullet_spawn = $bulletSpawn
-@onready var enemy_container = $EnemyContainer
-@onready var spawn_container = $SpawnContainer
 
-var enemy_scene = preload("res://scenes (game screens)/game/enemy.tscn")
-var bullet_scene = preload("res://scenes (game screens)/game/bullet.tscn")
+@onready var bullet_spawn = $bulletSpawn
+var bullet_scene = preload("res://Scenes/Bullet.tscn")
 
 func shoot():
 	print("SHOOT CALLED")
-
+	
 	var bullet = bullet_scene.instantiate()
 	print("Bullet created:", bullet)
-
+	
 	get_tree().current_scene.add_child(bullet)
 	bullet.global_position = $bulletSpawn.global_position
 
@@ -25,6 +21,8 @@ func shoot():
 func _ready():
 	next_word()
 	$game_Over.visible = false
+
+
 
 
 func next_word():
@@ -42,6 +40,7 @@ func stuck_word():
 	$input.grab_focus()
 
 
+
 func _on_input_text_submitted(new_text: String) -> void:
 	print("ENTER WORKS:", new_text)
 
@@ -54,7 +53,6 @@ func _on_input_text_submitted(new_text: String) -> void:
 		print("Wrong!")
 		stuck_word()
 
-
 func game_over():
 	pass
 
@@ -66,21 +64,12 @@ func _on_timer_timeout() -> void:
 	var score_node := $game_Over/score_display/score_num
 	score_node.text = str(count)
 	$game_Over.visible = true
-
+	
+#func _moveinput(event):
+	#if event.is_action_pressed("left") or event.is_action_pressed("right"):
+		#return
 
 func _on_submit_button_pressed() -> void:
-	pass
-
-
-func spawn_enemy():
-	var enemy = enemy_scene.instantiate()
-
-	var spawns = spawn_container.get_children()
-	var spawn_point = spawns[randi() % spawns.size()]
-
-	enemy.global_position = spawn_point.global_position
-	enemy_container.add_child(enemy)
-
-
-func _on_spawn_timer_timeout() -> void:
-	spawn_enemy()
+	get_tree().change_scene_to_file("res://Scenes/Score.tscn")
+	var name = $game_Over/nameInput.text
+	Network.send_score(name, count)
