@@ -153,6 +153,7 @@ position = Vector2(1052, 0)
 wait_time = 5.0
 
 [node name="DifficultyTimer" type="Timer" parent="." unique_id=1922480370]
+wait_time = 4.0
 autostart = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=244474795]
