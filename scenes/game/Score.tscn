@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bum23onvoaetf" path="res://assets/sprites/background.png" id="2_m52l2"]
 [ext_resource type="Texture2D" uid="uid://bvs8fw34mpb8x" path="res://assets/sprites/card.png" id="3_64aje"]
 [ext_resource type="Texture2D" uid="uid://cxhbhpplnmk7t" path="res://assets/sprites/leaderbaordTag.png" id="4_bjsmf"]
+[ext_resource type="Texture2D" uid="uid://ctwfj8lyxfbys" path="res://assets/sprites/nameHolders.png" id="5_64aje"]
 
 [node name="Score" type="Node2D" unique_id=98304812]
 script = ExtResource("1_5hcfu")
@@ -20,6 +21,31 @@ texture = ExtResource("3_64aje")
 position = Vector2(9, -212)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("4_bjsmf")
+
+[node name="NameHolders" type="Sprite2D" parent="Sprite2D2" unique_id=554462793]
+position = Vector2(8, -51)
+scale = Vector2(1, 0.43847656)
+texture = ExtResource("5_64aje")
+
+[node name="NameHolders5" type="Sprite2D" parent="Sprite2D2" unique_id=329531655]
+position = Vector2(8, -51)
+scale = Vector2(1, 0.43847656)
+texture = ExtResource("5_64aje")
+
+[node name="NameHolders4" type="Sprite2D" parent="Sprite2D2" unique_id=759805659]
+position = Vector2(7, 224)
+scale = Vector2(1, 0.43847656)
+texture = ExtResource("5_64aje")
+
+[node name="NameHolders3" type="Sprite2D" parent="Sprite2D2" unique_id=1733185736]
+position = Vector2(7, 130)
+scale = Vector2(1, 0.43847656)
+texture = ExtResource("5_64aje")
+
+[node name="NameHolders2" type="Sprite2D" parent="Sprite2D2" unique_id=1836116525]
+position = Vector2(8, 41)
+scale = Vector2(1, 0.43847656)
+texture = ExtResource("5_64aje")
 
 [node name="Scores" type="Label" parent="." unique_id=1419231091]
 offset_left = 175.0
