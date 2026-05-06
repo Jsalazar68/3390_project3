@@ -136,16 +136,21 @@ func _on_submit_button_pressed() -> void:
 	var name = $game_Over/nameInput.text
 	Network.send_score(name, count)
 
+#restart button
 func _on_reset_button_pressed() -> void:
 	get_tree().reload_current_scene()
 
-
+#pause button
 func _on_pause_button_pressed() -> void:
 	get_tree().paused = true
 	$PauseMenu.show()
 
-
-
-func _on_continue_button_pressed() -> void:
+#continue botton
+func _on_texture_button_pressed() -> void:
 	$PauseMenu.hide()
 	get_tree().paused = false
+
+#exit button
+func _on_exit_button_pressed() -> void:
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://scenes/menu/main menu.tscn")

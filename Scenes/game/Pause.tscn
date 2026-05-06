@@ -2,9 +2,16 @@
 
 [ext_resource type="Script" uid="uid://kmrh74w5v3b2" path="res://scripts/gameplay/pause.gd" id="1_v6a0q"]
 [ext_resource type="FontFile" uid="uid://critqjbdcfn48" path="res://assets/fonts/Oups.otf" id="2_iahpw"]
+[ext_resource type="Texture2D" uid="uid://ygigu3dl01tq" path="res://assets/sprites/leaderboardResized.png" id="2_jp5e5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jp5e5"]
 bg_color = Color(0, 0, 0, 0.48235294)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ldrcs"]
+font = ExtResource("2_iahpw")
+font_size = 18
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_fhkms"]
 font = ExtResource("2_iahpw")
@@ -32,6 +39,25 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_jp5e5")
 
+[node name="TextureButton" type="TextureButton" parent="pause_Panel" unique_id=1724969438]
+texture_filter = 1
+layout_mode = 0
+offset_left = 577.0
+offset_top = 409.0
+offset_right = 705.0
+offset_bottom = 462.0
+scale = Vector2(1.5, 1)
+texture_normal = ExtResource("2_jp5e5")
+
+[node name="Label" type="Label" parent="pause_Panel/TextureButton" unique_id=1129983288]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 16.0
+offset_right = 84.0
+offset_bottom = 44.0
+text = "Continue"
+label_settings = SubResource("LabelSettings_ldrcs")
+
 [node name="pause_Label" type="Label" parent="pause_Panel" unique_id=1998957433]
 layout_mode = 1
 anchors_preset = 8
@@ -48,12 +74,4 @@ grow_vertical = 2
 text = "PAUSED"
 label_settings = SubResource("LabelSettings_fhkms")
 
-[node name="ContinueButton" type="Button" parent="." unique_id=793904603]
-layout_mode = 0
-offset_left = 510.0
-offset_top = 402.0
-offset_right = 790.0
-offset_bottom = 496.0
-text = "CONTINUE"
-
-[connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="pause_Panel/TextureButton" to="." method="_on_texture_button_pressed"]

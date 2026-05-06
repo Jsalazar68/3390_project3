@@ -11,6 +11,7 @@
 [ext_resource type="FontFile" uid="uid://critqjbdcfn48" path="res://assets/fonts/Oups.otf" id="6_gynul"]
 [ext_resource type="Texture2D" uid="uid://ygigu3dl01tq" path="res://assets/sprites/leaderboardResized.png" id="7_60iot"]
 [ext_resource type="AudioStream" uid="uid://bah4mi1xe4f86" path="res://audio/sfx/universfield-powerful-cannon-shot-352459.mp3" id="11_aptqa"]
+[ext_resource type="Texture2D" uid="uid://b4ie0bns7w4ir" path="res://assets/sprites/settingsCog.png" id="11_gynul"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gl6un"]
 
@@ -53,9 +54,17 @@ size = Vector2(86, 81)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nbkpf"]
 size = Vector2(1278.5, 36)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gynul"]
+bg_color = Color(0, 0, 0, 0.9098039)
+
 [sub_resource type="LabelSettings" id="LabelSettings_qivi1"]
 font = ExtResource("6_gynul")
 font_size = 72
+
+[sub_resource type="LabelSettings" id="LabelSettings_aptqa"]
+font = ExtResource("6_gynul")
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Game" type="Node2D" unique_id=529625396]
 script = ExtResource("1_iukft")
@@ -256,14 +265,17 @@ offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="PauseButton" type="Button" parent="." unique_id=1131325635]
-offset_left = 1015.0
-offset_top = 41.0
-offset_right = 1214.0
-offset_bottom = 96.0
-text = "PAUSE"
+offset_left = 1148.0
+offset_top = 2.0
+offset_right = 1347.0
+offset_bottom = 106.0
+icon = ExtResource("11_gynul")
+flat = true
 
 [node name="PauseMenu" type="Control" parent="." unique_id=1044815925]
 process_mode = 2
+visible = false
+z_index = 1
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1288.0
@@ -273,24 +285,73 @@ offset_bottom = 772.0
 layout_mode = 0
 offset_right = 1306.0
 offset_bottom = 769.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gynul")
 
 [node name="Label" type="Label" parent="PauseMenu" unique_id=799552395]
-layout_mode = 0
-offset_left = 184.0
-offset_top = 167.0
-offset_right = 370.0
-offset_bottom = 255.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.0
+offset_top = -126.0
+offset_right = 79.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "PAUSE"
 label_settings = SubResource("LabelSettings_qivi1")
 
-[node name="ContinueButton" type="Button" parent="PauseMenu" unique_id=87072734]
+[node name="continue button" type="TextureButton" parent="PauseMenu" unique_id=1481932436]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -26.5
+offset_right = 64.0
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("7_60iot")
+
+[node name="Label" type="Label" parent="PauseMenu/continue button" unique_id=450920021]
 layout_mode = 0
-offset_left = 252.0
-offset_top = 291.0
-offset_right = 351.0
-offset_bottom = 329.0
-text = "CONTINUE
-"
+offset_left = 10.0
+offset_top = 18.0
+offset_right = 81.0
+offset_bottom = 41.0
+text = "Continue"
+label_settings = SubResource("LabelSettings_aptqa")
+
+[node name="exit button" type="TextureButton" parent="PauseMenu" unique_id=713741759]
+texture_filter = 1
+layout_mode = 0
+offset_left = 582.0
+offset_top = 419.0
+offset_right = 710.0
+offset_bottom = 472.0
+texture_normal = ExtResource("5_aptqa")
+
+[node name="Label" type="Label" parent="PauseMenu/exit button" unique_id=1029522064]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = -9.5
+offset_right = 34.0
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "exit"
+label_settings = SubResource("LabelSettings_aptqa")
 
 [node name="cannonShot" type="AudioStreamPlayer2D" parent="." unique_id=403076497]
 stream = ExtResource("11_aptqa")
@@ -305,4 +366,5 @@ stream = ExtResource("11_aptqa")
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="DifficultyTimer" to="." method="_on_difficulty_timer_timeout"]
 [connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
-[connection signal="pressed" from="PauseMenu/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="PauseMenu/continue button" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="PauseMenu/exit button" to="." method="_on_exit_button_pressed"]
