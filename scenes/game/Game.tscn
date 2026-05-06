@@ -136,8 +136,13 @@ position = Vector2(1052, 0)
 [node name="EnemyContainer" type="Node" parent="." unique_id=1794667496]
 
 [node name="SpawnTimer" type="Timer" parent="." unique_id=713875536]
+wait_time = 5.0
+
+[node name="DifficultyTimer" type="Timer" parent="." unique_id=1922480370]
+autostart = true
 
 [connection signal="text_submitted" from="input" to="." method="_on_input_text_submitted"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="game_Over/submit_button" to="." method="_on_submit_button_pressed"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="DifficultyTimer" to="." method="_on_difficulty_timer_timeout"]

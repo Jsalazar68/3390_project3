@@ -2,7 +2,7 @@ extends Node2D
 
 var Enemy = preload("res://Scenes/game/Enemy.tscn")
 
-
+var difficulty: int = 0
 var words = ["apple", "banana", "cat"]
 var current_word = ""
 var count: int = 0;
@@ -96,3 +96,12 @@ func spawn_enemy():
 	var index = randi() % spawns.size()
 	enemy_container.add_child(enemy_instance)
 	enemy_instance.global_position = spawns[index].global_position
+	enemy_instance.set_difficulty(difficulty)
+
+func _on_difficulty_timer_timeout() -> void:
+	difficulty += 1
+	GlobalSignals.emit_signal("difficulty_increased", difficulty)
+	print("Difficulty increase to %d" % difficulty)
+	var new_wait_time = spawn_timer.wait_time - 0.2
+	spawn_timer.wait_time = clamp(new_wait_time, 1, spawn_timer.wait_time)
+	spawn_timer.wait_time -= 0.2 
