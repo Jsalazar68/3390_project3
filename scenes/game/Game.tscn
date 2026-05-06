@@ -27,13 +27,11 @@ size = Vector2(1278.5, 36)
 script = ExtResource("1_iukft")
 
 [node name="background" type="Sprite2D" parent="." unique_id=1252129864]
-visible = false
 position = Vector2(638.5, 359.50003)
 scale = Vector2(1.0148438, 1.0236112)
 texture = ExtResource("2_lyhax")
 
 [node name="Label" type="Label" parent="." unique_id=1215664265]
-visible = false
 offset_left = 659.0
 offset_top = 601.0
 offset_right = 727.0
@@ -41,7 +39,6 @@ offset_bottom = 624.0
 text = "Enter to shoot"
 
 [node name="word_display" type="Label" parent="." unique_id=1215411359]
-visible = false
 offset_left = 341.0
 offset_top = 601.0
 offset_right = 477.0
@@ -84,7 +81,6 @@ offset_bottom = 40.0
 theme_override_font_sizes/font_size = 30
 
 [node name="submit_button" type="Button" parent="game_Over" unique_id=551229000]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.041
@@ -97,7 +93,6 @@ theme_override_font_sizes/font_size = 8
 text = "Submit"
 
 [node name="reset_button" type="Button" parent="game_Over" unique_id=22345123]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.021000002
@@ -110,7 +105,6 @@ theme_override_font_sizes/font_size = 8
 text = "restart"
 
 [node name="nameInput" type="LineEdit" parent="game_Over" unique_id=1690426926]
-visible = false
 layout_mode = 0
 offset_left = 108.0
 offset_top = 271.0
@@ -119,7 +113,6 @@ offset_bottom = 293.0
 theme_override_font_sizes/font_size = 10
 
 [node name="game over" type="Label" parent="game_Over" unique_id=112513693]
-visible = false
 layout_mode = 0
 offset_left = 47.0
 offset_top = 9.0
@@ -129,7 +122,6 @@ theme_override_font_sizes/font_size = 30
 text = "GAME OVER"
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=106504408]
-visible = false
 position = Vector2(559, 558)
 script = ExtResource("2_gl6un")
 
@@ -202,6 +194,7 @@ offset_bottom = 23.0
 [connection signal="text_submitted" from="wordInput" to="." method="_on_input_text_submitted"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="game_Over/submit_button" to="." method="_on_submit_button_pressed"]
+[connection signal="pressed" from="game_Over/reset_button" to="." method="_on_reset_button_pressed"]
 [connection signal="area_entered" from="LoseArea" to="." method="_on_lose_area_area_entered"]
 [connection signal="body_entered" from="LoseArea" to="." method="_on_lose_area_body_entered"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

@@ -124,3 +124,7 @@ func _on_word_input_gui_input(event: InputEvent) -> void:
 		if event.keycode == KEY_LEFT or event.keycode == KEY_RIGHT:
 			get_viewport().set_input_as_handled()
 	
+
+
+func _on_reset_button_pressed() -> void:
+	get_tree().reload_current_scene()
