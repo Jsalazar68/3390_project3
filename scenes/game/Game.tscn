@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://58ol2dabopc0" path="res://scripts/gameplay/game.gd" id="1_iukft"]
 [ext_resource type="Script" uid="uid://cqjb5e4n1urke" path="res://scripts/gameplay/player.gd" id="2_gl6un"]
+[ext_resource type="PackedScene" uid="uid://c54ibeue7fonp" path="res://Scenes/game/Pause.tscn" id="3_gbxxb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gl6un"]
 
@@ -136,6 +137,10 @@ position = Vector2(1052, 0)
 [node name="EnemyContainer" type="Node" parent="." unique_id=1794667496]
 
 [node name="SpawnTimer" type="Timer" parent="." unique_id=713875536]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=244474795]
+
+[node name="Pause" parent="CanvasLayer" unique_id=1667373569 instance=ExtResource("3_gbxxb")]
 
 [connection signal="text_submitted" from="input" to="." method="_on_input_text_submitted"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
