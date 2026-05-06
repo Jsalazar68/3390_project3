@@ -4,7 +4,13 @@
 [ext_resource type="Script" uid="uid://cqjb5e4n1urke" path="res://scripts/gameplay/player.gd" id="2_gl6un"]
 [ext_resource type="Texture2D" uid="uid://bum23onvoaetf" path="res://assets/sprites/background.png" id="2_lyhax"]
 [ext_resource type="Texture2D" uid="uid://dakwv4n5sikne" path="res://assets/sprites/cannon.png" id="3_7qcb4"]
-[ext_resource type="PackedScene" uid="uid://c54ibeue7fonp" path="res://Scenes/game/Pause.tscn" id="3_gbxxb"]
+[ext_resource type="Texture2D" uid="uid://bvs8fw34mpb8x" path="res://assets/sprites/card.png" id="3_365ku"]
+[ext_resource type="PackedScene" uid="uid://c54ibeue7fonp" path="res://scenes/game/Pause.tscn" id="3_gbxxb"]
+[ext_resource type="Texture2D" uid="uid://cdbgcf8lu2ar7" path="res://assets/sprites/gameover.png" id="4_56wml"]
+[ext_resource type="Texture2D" uid="uid://ctwfj8lyxfbys" path="res://assets/sprites/nameHolders.png" id="4_aptqa"]
+[ext_resource type="Texture2D" uid="uid://c4tesl1e1jotc" path="res://assets/sprites/exitResized.png" id="5_aptqa"]
+[ext_resource type="FontFile" uid="uid://critqjbdcfn48" path="res://assets/fonts/Oups.otf" id="6_gynul"]
+[ext_resource type="Texture2D" uid="uid://ygigu3dl01tq" path="res://assets/sprites/leaderboardResized.png" id="7_60iot"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gl6un"]
 
@@ -16,6 +22,30 @@ func _on_input_gui_input(event):
         if event.keycode == KEY_LEFT or event.keycode == KEY_RIGHT:
             accept_event()
 "
+
+[sub_resource type="LabelSettings" id="LabelSettings_gynul"]
+font = ExtResource("6_gynul")
+font_size = 30
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_60iot"]
+font = ExtResource("6_gynul")
+font_size = 30
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5xhyk"]
+font = ExtResource("6_gynul")
+font_size = 20
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2iokk"]
+font = ExtResource("6_gynul")
+font_size = 20
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j5yw3"]
 size = Vector2(86, 81)
@@ -58,68 +88,104 @@ wait_time = 1000.0
 autostart = true
 
 [node name="game_Over" type="Panel" parent="." unique_id=1727549270]
-offset_left = 433.0
-offset_top = 112.0
-offset_right = 719.0
-offset_bottom = 418.0
+offset_left = 495.0
+offset_top = 135.0
+offset_right = 781.0
+offset_bottom = 441.0
+
+[node name="card" type="TextureRect" parent="game_Over" unique_id=1993246805]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -261.0
+offset_top = -261.0
+offset_right = 251.0
+offset_bottom = 251.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_365ku")
+stretch_mode = 3
+
+[node name="NameHolders" type="Sprite2D" parent="game_Over" unique_id=588027899]
+texture_filter = 1
+position = Vector2(129, 149)
+scale = Vector2(0.6, 0.3)
+texture = ExtResource("4_aptqa")
 
 [node name="score_display" type="Label" parent="game_Over" unique_id=104131629]
 layout_mode = 0
-offset_left = 14.0
-offset_top = 151.0
-offset_right = 105.0
-offset_bottom = 222.0
+offset_left = 25.0
+offset_top = 130.0
+offset_right = 117.0
+offset_bottom = 166.0
 theme_override_font_sizes/font_size = 29
 text = "SCORE:"
+label_settings = SubResource("LabelSettings_gynul")
 
 [node name="score_num" type="Label" parent="game_Over/score_display" unique_id=640579556]
 layout_mode = 0
-offset_left = 113.0
-offset_top = -2.0
-offset_right = 156.0
-offset_bottom = 40.0
+offset_left = 143.0
+offset_right = 186.0
+offset_bottom = 42.0
 theme_override_font_sizes/font_size = 30
-
-[node name="submit_button" type="Button" parent="game_Over" unique_id=551229000]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.041
-anchor_bottom = 0.029000001
-offset_left = 221.0
-offset_top = 271.0
-offset_right = 249.08699
-offset_bottom = 284.997
-theme_override_font_sizes/font_size = 8
-text = "Submit"
-
-[node name="reset_button" type="Button" parent="game_Over" unique_id=22345123]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.021000002
-anchor_bottom = 0.019000001
-offset_left = 30.0
-offset_top = 268.0
-offset_right = 60.947002
-offset_bottom = 284.067
-theme_override_font_sizes/font_size = 8
-text = "restart"
+label_settings = SubResource("LabelSettings_60iot")
 
 [node name="nameInput" type="LineEdit" parent="game_Over" unique_id=1690426926]
 layout_mode = 0
-offset_left = 108.0
-offset_top = 271.0
-offset_right = 189.0
-offset_bottom = 293.0
+offset_left = 167.0
+offset_top = 235.0
+offset_right = 248.0
+offset_bottom = 257.0
 theme_override_font_sizes/font_size = 10
+placeholder_text = "NAME"
 
-[node name="game over" type="Label" parent="game_Over" unique_id=112513693]
+[node name="gameOverText" type="TextureRect" parent="game_Over" unique_id=1958633725]
+texture_filter = 1
 layout_mode = 0
-offset_left = 47.0
-offset_top = 9.0
-offset_right = 139.0
-offset_bottom = 32.0
-theme_override_font_sizes/font_size = 30
-text = "GAME OVER"
+offset_left = 13.0
+offset_top = -74.0
+offset_right = 525.0
+offset_bottom = 438.0
+scale = Vector2(0.5, 0.4)
+texture = ExtResource("4_56wml")
+
+[node name="resetButton" type="TextureButton" parent="game_Over" unique_id=2121496744]
+texture_filter = 1
+layout_mode = 0
+offset_left = 93.0
+offset_top = 293.0
+offset_right = 221.0
+offset_bottom = 346.0
+texture_normal = ExtResource("5_aptqa")
+
+[node name="Label" type="Label" parent="game_Over/resetButton" unique_id=1578582373]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 13.0
+offset_right = 81.0
+offset_bottom = 37.0
+text = "restart"
+label_settings = SubResource("LabelSettings_5xhyk")
+
+[node name="submitButton" type="TextureButton" parent="game_Over" unique_id=152950736]
+texture_filter = 1
+layout_mode = 0
+offset_left = 9.0
+offset_top = 217.0
+offset_right = 137.0
+offset_bottom = 270.0
+texture_normal = ExtResource("7_60iot")
+
+[node name="Label" type="Label" parent="game_Over/submitButton" unique_id=489794822]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 15.0
+offset_right = 89.0
+offset_bottom = 46.0
+text = "submit"
+label_settings = SubResource("LabelSettings_2iokk")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=106504408]
 position = Vector2(559, 558)
@@ -193,8 +259,8 @@ offset_bottom = 23.0
 [connection signal="gui_input" from="wordInput" to="." method="_on_word_input_gui_input"]
 [connection signal="text_submitted" from="wordInput" to="." method="_on_input_text_submitted"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="pressed" from="game_Over/submit_button" to="." method="_on_submit_button_pressed"]
-[connection signal="pressed" from="game_Over/reset_button" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="game_Over/resetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="game_Over/submitButton" to="." method="_on_submit_button_pressed"]
 [connection signal="area_entered" from="LoseArea" to="." method="_on_lose_area_area_entered"]
 [connection signal="body_entered" from="LoseArea" to="." method="_on_lose_area_body_entered"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

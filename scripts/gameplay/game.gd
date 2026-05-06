@@ -79,16 +79,10 @@ func _on_timer_timeout() -> void:
 	$game_Over.visible = true
 	
 
-
-func _on_submit_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scripts/gameplay/score.gd")
-	var name = $game_Over/nameInput.text
-	Network.send_score(name, count)
-
-
 func _on_spawn_timer_timeout() -> void:
 	spawn_enemy()
 	
+
 func spawn_enemy():
 	var enemy_instance = Enemy.instantiate()
 	var spawns = spawn_enemy_container.get_children()
@@ -125,6 +119,10 @@ func _on_word_input_gui_input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 	
 
+func _on_submit_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scripts/gameplay/score.gd")
+	var name = $game_Over/nameInput.text
+	Network.send_score(name, count)
 
 func _on_reset_button_pressed() -> void:
 	get_tree().reload_current_scene()
