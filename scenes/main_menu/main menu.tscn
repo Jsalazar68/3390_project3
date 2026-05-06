@@ -3,8 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://d2ji24121wnuc" path="res://assets/sprites/mainMenuBackground.png" id="1_7kwte"]
 [ext_resource type="Texture2D" uid="uid://dpdcy7ukk20sy" path="res://assets/sprites/playResized.png" id="2_cyivw"]
 [ext_resource type="FontFile" uid="uid://bj86d6r66gb81" path="res://assets/fonts/Oups_Clean.otf" id="3_cse14"]
-[ext_resource type="Texture2D" uid="uid://ygigu3dl01tq" path="res://assets/sprites/settingsResized.png" id="3_cyivw"]
+[ext_resource type="Texture2D" uid="uid://ygigu3dl01tq" path="res://assets/sprites/leaderboardResized.png" id="3_cyivw"]
 [ext_resource type="Texture2D" uid="uid://c4tesl1e1jotc" path="res://assets/sprites/exitResized.png" id="4_cse14"]
+[ext_resource type="Texture2D" uid="uid://bdw4w4d1gv3dn" path="res://assets/sprites/title.png" id="6_v3gtl"]
+[ext_resource type="Texture2D" uid="uid://b4ie0bns7w4ir" path="res://assets/sprites/settingsCog.png" id="7_nlive"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_s5o6v"]
 font = ExtResource("3_cse14")
@@ -14,7 +16,7 @@ outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_pacxi"]
 font = ExtResource("3_cse14")
-font_size = 18
+font_size = 12
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
@@ -45,10 +47,10 @@ texture = ExtResource("1_7kwte")
 [node name="playButton" type="TextureButton" parent="Panel" unique_id=1754442228]
 texture_filter = 1
 layout_mode = 0
-offset_left = 155.0
-offset_top = 193.0
-offset_right = 270.55554
-offset_bottom = 270.77783
+offset_left = 156.2963
+offset_top = 242.2222
+offset_right = 271.85184
+offset_bottom = 320.00003
 scale = Vector2(1.8, 1.4)
 texture_normal = ExtResource("2_cyivw")
 ignore_texture_size = true
@@ -65,7 +67,7 @@ label_settings = SubResource("LabelSettings_s5o6v")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="settingsButton" type="TextureButton" parent="Panel" unique_id=1511297770]
+[node name="leaderboardButton" type="TextureButton" parent="Panel" unique_id=1511297770]
 texture_filter = 1
 layout_mode = 0
 offset_left = 160.0
@@ -76,14 +78,13 @@ scale = Vector2(2.2, 1.15)
 texture_normal = ExtResource("3_cyivw")
 ignore_texture_size = true
 
-[node name="settingsLabel" type="Label" parent="Panel/settingsButton" unique_id=1110723941]
-texture_filter = 1
+[node name="leaderboardLabel" type="Label" parent="Panel/leaderboardButton" unique_id=1110723941]
 layout_mode = 0
 offset_left = 5.7239056
 offset_top = 10.305722
 offset_right = 84.84848
 offset_bottom = 47.66482
-text = "Settings"
+text = "Leaderboard"
 label_settings = SubResource("LabelSettings_pacxi")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -111,11 +112,17 @@ label_settings = SubResource("LabelSettings_vsctn")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="Panel" unique_id=1905075139]
+[node name="Title2" type="Sprite2D" parent="Panel" unique_id=868919617]
+position = Vector2(180.00002, 103.7037)
+rotation = -0.12217305
+scale = Vector2(0.8, 0.47)
+texture = ExtResource("6_v3gtl")
+
+[node name="settingsButton" type="TextureButton" parent="Panel" unique_id=1475755997]
 layout_mode = 0
-offset_left = 25.925926
-offset_top = 49.629627
-offset_right = 237.92593
-offset_bottom = 104.62962
-theme_override_font_sizes/font_size = 40
-text = "TITLE HERE"
+offset_left = 435.55554
+offset_top = 8.148149
+offset_right = 531.55554
+offset_bottom = 104.14815
+scale = Vector2(0.7, 0.7)
+texture_normal = ExtResource("7_nlive")
