@@ -8,6 +8,15 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gl6un"]
 
+[sub_resource type="GDScript" id="GDScript_nbkpf"]
+script/source = "extends LineEdit
+
+func _on_input_gui_input(event):
+    if event is InputEventKey and event.pressed:
+        if event.keycode == KEY_LEFT or event.keycode == KEY_RIGHT:
+            accept_event()
+"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j5yw3"]
 size = Vector2(86, 81)
 
@@ -34,11 +43,12 @@ offset_bottom = 624.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_gl6un")
 
-[node name="input" type="LineEdit" parent="." unique_id=1546481501]
+[node name="wordInput" type="LineEdit" parent="." unique_id=1546481501]
 offset_left = 491.0
 offset_top = 597.0
 offset_right = 636.0
 offset_bottom = 628.0
+script = SubResource("GDScript_nbkpf")
 
 [node name="Timer" type="Timer" parent="." unique_id=1800865907]
 wait_time = 1000.0
@@ -161,7 +171,8 @@ visible = false
 
 [node name="Pause" parent="CanvasLayer" unique_id=1667373569 instance=ExtResource("3_gbxxb")]
 
-[connection signal="text_submitted" from="input" to="." method="_on_input_text_submitted"]
+[connection signal="gui_input" from="wordInput" to="." method="_on_word_input_gui_input"]
+[connection signal="text_submitted" from="wordInput" to="." method="_on_input_text_submitted"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="game_Over/submit_button" to="." method="_on_submit_button_pressed"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
