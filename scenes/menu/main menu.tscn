@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://45a7f05n5gju"]
 
 [ext_resource type="Texture2D" uid="uid://d2ji24121wnuc" path="res://assets/sprites/mainMenuBackground.png" id="1_7kwte"]
+[ext_resource type="Script" uid="uid://bdgpjcj7l6jvi" path="res://scripts/gameplay/mainMenu.gd" id="1_kvjft"]
 [ext_resource type="Texture2D" uid="uid://dpdcy7ukk20sy" path="res://assets/sprites/playResized.png" id="2_cyivw"]
 [ext_resource type="FontFile" uid="uid://bj86d6r66gb81" path="res://assets/fonts/Oups_Clean.otf" id="3_cse14"]
 [ext_resource type="Texture2D" uid="uid://ygigu3dl01tq" path="res://assets/sprites/leaderboardResized.png" id="3_cyivw"]
 [ext_resource type="Texture2D" uid="uid://c4tesl1e1jotc" path="res://assets/sprites/exitResized.png" id="4_cse14"]
 [ext_resource type="Texture2D" uid="uid://bdw4w4d1gv3dn" path="res://assets/sprites/title.png" id="6_v3gtl"]
-[ext_resource type="Texture2D" uid="uid://b4ie0bns7w4ir" path="res://assets/sprites/settingsCog.png" id="7_nlive"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_s5o6v"]
 font = ExtResource("3_cse14")
@@ -16,7 +16,7 @@ outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_pacxi"]
 font = ExtResource("3_cse14")
-font_size = 12
+font_size = 13
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
@@ -33,6 +33,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_kvjft")
 
 [node name="Panel" type="TextureRect" parent="." unique_id=1159673436]
 texture_filter = 1
@@ -113,16 +114,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Title2" type="Sprite2D" parent="Panel" unique_id=868919617]
+texture_filter = 1
 position = Vector2(180.00002, 103.7037)
 rotation = -0.12217305
 scale = Vector2(0.8, 0.47)
 texture = ExtResource("6_v3gtl")
 
-[node name="settingsButton" type="TextureButton" parent="Panel" unique_id=1475755997]
-layout_mode = 0
-offset_left = 435.55554
-offset_top = 8.148149
-offset_right = 531.55554
-offset_bottom = 104.14815
-scale = Vector2(0.7, 0.7)
-texture_normal = ExtResource("7_nlive")
+[connection signal="pressed" from="Panel/playButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Panel/leaderboardButton" to="." method="_on_leaderboard_button_pressed"]
+[connection signal="pressed" from="Panel/exitButton" to="." method="_on_exit_button_pressed"]
