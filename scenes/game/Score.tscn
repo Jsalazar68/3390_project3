@@ -9,40 +9,40 @@
 [node name="Score" type="Node2D" unique_id=98304812]
 script = ExtResource("1_5hcfu")
 
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1584614539]
+[node name="background" type="Sprite2D" parent="." unique_id=1584614539]
 position = Vector2(640, 360)
 texture = ExtResource("2_m52l2")
 
-[node name="Sprite2D" type="Sprite2D" parent="Sprite2D2" unique_id=1235730098]
+[node name="card" type="Sprite2D" parent="background" unique_id=1235730098]
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_64aje")
 
-[node name="LeaderbaordTag" type="Sprite2D" parent="Sprite2D2" unique_id=293704653]
+[node name="LeaderbaordTag" type="Sprite2D" parent="background" unique_id=293704653]
 position = Vector2(9, -212)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("4_bjsmf")
 
-[node name="NameHolders" type="Sprite2D" parent="Sprite2D2" unique_id=554462793]
+[node name="NameHolders" type="Sprite2D" parent="background" unique_id=554462793]
 position = Vector2(8, -51)
 scale = Vector2(1, 0.43847656)
 texture = ExtResource("5_64aje")
 
-[node name="NameHolders5" type="Sprite2D" parent="Sprite2D2" unique_id=329531655]
+[node name="NameHolders5" type="Sprite2D" parent="background" unique_id=329531655]
 position = Vector2(8, -51)
 scale = Vector2(1, 0.43847656)
 texture = ExtResource("5_64aje")
 
-[node name="NameHolders4" type="Sprite2D" parent="Sprite2D2" unique_id=759805659]
+[node name="NameHolders4" type="Sprite2D" parent="background" unique_id=759805659]
 position = Vector2(7, 224)
 scale = Vector2(1, 0.43847656)
 texture = ExtResource("5_64aje")
 
-[node name="NameHolders3" type="Sprite2D" parent="Sprite2D2" unique_id=1733185736]
+[node name="NameHolders3" type="Sprite2D" parent="background" unique_id=1733185736]
 position = Vector2(7, 130)
 scale = Vector2(1, 0.43847656)
 texture = ExtResource("5_64aje")
 
-[node name="NameHolders2" type="Sprite2D" parent="Sprite2D2" unique_id=1836116525]
+[node name="NameHolders2" type="Sprite2D" parent="background" unique_id=1836116525]
 position = Vector2(8, 41)
 scale = Vector2(1, 0.43847656)
 texture = ExtResource("5_64aje")
