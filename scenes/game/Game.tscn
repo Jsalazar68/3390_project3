@@ -8,8 +8,20 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gl6un"]
 
+[sub_resource type="GDScript" id="GDScript_nbkpf"]
+script/source = "extends LineEdit
+
+func _on_input_gui_input(event):
+    if event is InputEventKey and event.pressed:
+        if event.keycode == KEY_LEFT or event.keycode == KEY_RIGHT:
+            accept_event()
+"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j5yw3"]
 size = Vector2(86, 81)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nbkpf"]
+size = Vector2(1278.5, 36)
 
 [node name="Game" type="Node2D" unique_id=529625396]
 script = ExtResource("1_iukft")
@@ -34,11 +46,12 @@ offset_bottom = 624.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_gl6un")
 
-[node name="input" type="LineEdit" parent="." unique_id=1546481501]
+[node name="wordInput" type="LineEdit" parent="." unique_id=1546481501]
 offset_left = 491.0
 offset_top = 597.0
 offset_right = 636.0
 offset_bottom = 628.0
+script = SubResource("GDScript_nbkpf")
 
 [node name="Timer" type="Timer" parent="." unique_id=1800865907]
 wait_time = 1000.0
@@ -133,6 +146,13 @@ texture = ExtResource("3_7qcb4")
 [node name="targetSpawn" type="Marker2D" parent="." unique_id=362909597]
 position = Vector2(356, 48)
 
+[node name="LoseArea" type="Area2D" parent="." unique_id=976767948]
+position = Vector2(44, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LoseArea" unique_id=43601716]
+position = Vector2(598.75, 707)
+shape = SubResource("RectangleShape2D_nbkpf")
+
 [node name="EnemySpawnContainer" type="Node2D" parent="." unique_id=1013780922]
 
 [node name="Marker2D" type="Marker2D" parent="EnemySpawnContainer" unique_id=1541138547]
@@ -161,8 +181,11 @@ visible = false
 
 [node name="Pause" parent="CanvasLayer" unique_id=1667373569 instance=ExtResource("3_gbxxb")]
 
-[connection signal="text_submitted" from="input" to="." method="_on_input_text_submitted"]
+[connection signal="gui_input" from="wordInput" to="." method="_on_word_input_gui_input"]
+[connection signal="text_submitted" from="wordInput" to="." method="_on_input_text_submitted"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="game_Over/submit_button" to="." method="_on_submit_button_pressed"]
+[connection signal="area_entered" from="LoseArea" to="." method="_on_lose_area_area_entered"]
+[connection signal="body_entered" from="LoseArea" to="." method="_on_lose_area_body_entered"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="DifficultyTimer" to="." method="_on_difficulty_timer_timeout"]

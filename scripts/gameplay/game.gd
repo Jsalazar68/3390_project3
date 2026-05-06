@@ -12,6 +12,7 @@ var count: int = 0;
 @onready var spawn_enemy_container = $EnemySpawnContainer
 @onready var bullet_spawn = $Player/bulletSpawn
 @onready var spawn_timer = $SpawnTimer
+@onready var game_over_screen = $game_Over
 var bullet_scene = preload("res://scenes/game/Bullet.tscn")
 var target_scene = preload("res://scenes/game/Target.tscn")
 func shoot():
@@ -40,16 +41,16 @@ func _ready() -> void:
 func next_word():
 	current_word = words[randi() % words.size()]
 	$word_display.text = current_word
-	$input.clear()
+	$wordInput.clear()
 	print("NEXT CALL")
-	$input.release_focus()
+	$wordInput.release_focus()
 	await get_tree().process_frame
-	$input.grab_focus()
+	$wordInput.grab_focus()
 
 func stuck_word():
-	$input.release_focus()
+	$wordInput.release_focus()
 	await get_tree().process_frame
-	$input.grab_focus()
+	$wordInput.grab_focus()
 
 
 
@@ -72,14 +73,12 @@ func game_over():
 func _on_timer_timeout() -> void:
 	print("TIMES UP")
 	print("FINAL SCORE: ", count)
-	$input.release_focus()
+	$wordInput.release_focus()
 	var score_node := $game_Over/score_display/score_num
 	score_node.text = str(count)
 	$game_Over.visible = true
 	
-#func _moveinput(event):
-	#if event.is_action_pressed("left") or event.is_action_pressed("right"):
-		#return
+
 
 func _on_submit_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scripts/gameplay/score.gd")
@@ -105,3 +104,19 @@ func _on_difficulty_timer_timeout() -> void:
 	var new_wait_time = spawn_timer.wait_time - 0.2
 	spawn_timer.wait_time = clamp(new_wait_time, 1, spawn_timer.wait_time)
 	spawn_timer.wait_time -= 0.2 
+
+
+<<<<<<< HEAD
+#func _on_lose_area_body_entered(body: Node2D) -> void:
+	#$game_Over.visible = true
+
+
+func _on_lose_area_area_entered(area: Area2D) -> void:
+	$game_Over.visible = true
+=======
+func _on_word_input_gui_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed:
+		if event.keycode == KEY_LEFT or event.keycode == KEY_RIGHT:
+			get_viewport().set_input_as_handled()
+	
+>>>>>>> 9f2c091ed005d86e9bc2594dce0573d3de98e455

@@ -4,8 +4,8 @@ var fixed_y
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
-@export var min_x = 0
-@export var max_x = 1280
+@export var min_x = 70
+@export var max_x = 1220
 
 func _ready():
 	fixed_y = position.y

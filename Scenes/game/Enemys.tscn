@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_l841m"]
 radius = 64.327286
 
-[node name="Enemys" type="Area2D" unique_id=851224656 groups=["target"]]
+[node name="Enemys" type="Area2D" unique_id=644520318 groups=["target"]]
 script = ExtResource("1_bo57h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=921042148 groups=["target"]]
