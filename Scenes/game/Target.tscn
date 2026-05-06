@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://4i3qyb8xtn8g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aaf07"]
+size = Vector2(39, 38)
+
+[node name="Target" type="Area2D" unique_id=1959773149 groups=["target"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2063638403]
+position = Vector2(1.5, 2)
+shape = SubResource("RectangleShape2D_aaf07")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1921269718]
+offset_left = -18.0
+offset_top = -18.0
+offset_right = 22.0
+offset_bottom = 22.0
+color = Color(1, 0, 0, 1)

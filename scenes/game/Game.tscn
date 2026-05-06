@@ -116,6 +116,9 @@ offset_bottom = 25.0
 [node name="bulletSpawn" type="Marker2D" parent="Player" unique_id=1954747163]
 position = Vector2(2, -37)
 
+[node name="targetSpawn" type="Marker2D" parent="." unique_id=362909597]
+position = Vector2(356, 48)
+
 [connection signal="text_submitted" from="input" to="." method="_on_input_text_submitted"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="game_Over/submit_button" to="." method="_on_submit_button_pressed"]

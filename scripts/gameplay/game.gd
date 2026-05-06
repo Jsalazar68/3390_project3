@@ -4,10 +4,10 @@ var words = ["apple", "banana", "cat"]
 var current_word = ""
 var count: int = 0;
 @onready var player = $Player
-
+@onready var target_spawn = $targetSpawn
 @onready var bullet_spawn = $Player/bulletSpawn
 var bullet_scene = preload("res://scenes/game/Bullet.tscn")
-
+var target_scene = preload("res://scenes/game/Target.tscn")
 func shoot():
 	print("SHOOT CALLED")
 	
@@ -21,6 +21,9 @@ func shoot():
 func _ready():
 	next_word()
 	$game_Over.visible = false
+	var target = target_scene.instantiate()
+	add_child(target)
+	target.global_position = target_spawn.global_position
 
 
 

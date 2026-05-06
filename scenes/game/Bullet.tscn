@@ -2,14 +2,20 @@
 
 [ext_resource type="Script" uid="uid://ctsosnewq47v5" path="res://scripts/gameplay/bullet.gd" id="1_vlxeq"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r5nwh"]
+size = Vector2(27, 37)
+
 [node name="Bullet" type="Area2D" unique_id=2038589410]
-position = Vector2(158, 81)
 script = ExtResource("1_vlxeq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1454194124]
+position = Vector2(2.5, 2.5)
+shape = SubResource("RectangleShape2D_r5nwh")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=126209896]
-offset_left = -20.0
+offset_left = -12.0
 offset_top = -16.0
-offset_right = 17.0
+offset_right = 16.0
 offset_bottom = 21.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
