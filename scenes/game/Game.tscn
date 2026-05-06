@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c4tesl1e1jotc" path="res://assets/sprites/exitResized.png" id="5_aptqa"]
 [ext_resource type="FontFile" uid="uid://critqjbdcfn48" path="res://assets/fonts/Oups.otf" id="6_gynul"]
 [ext_resource type="Texture2D" uid="uid://ygigu3dl01tq" path="res://assets/sprites/leaderboardResized.png" id="7_60iot"]
+[ext_resource type="AudioStream" uid="uid://bah4mi1xe4f86" path="res://audio/sfx/universfield-powerful-cannon-shot-352459.mp3" id="11_aptqa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gl6un"]
 
@@ -290,6 +291,9 @@ offset_right = 351.0
 offset_bottom = 329.0
 text = "CONTINUE
 "
+
+[node name="cannonShot" type="AudioStreamPlayer2D" parent="." unique_id=403076497]
+stream = ExtResource("11_aptqa")
 
 [connection signal="gui_input" from="wordInput" to="." method="_on_word_input_gui_input"]
 [connection signal="text_submitted" from="wordInput" to="." method="_on_input_text_submitted"]

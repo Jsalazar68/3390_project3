@@ -25,14 +25,14 @@ var count: int = 0;
 @onready var game_over_screen = $game_Over
 var bullet_scene = preload("res://scenes/game/Bullet.tscn")
 var target_scene = preload("res://scenes/game/Target.tscn")
+
 func shoot():
 	print("SHOOT CALLED")
-	
 	var bullet = bullet_scene.instantiate()
 	print("Bullet created:", bullet)
-	
 	get_tree().current_scene.add_child(bullet)
 	bullet.global_position = $Player/bulletSpawn.global_position + Vector2(0, -57)
+	$cannonShot.play()
 
 
 func _ready() -> void:
