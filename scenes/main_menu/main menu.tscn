@@ -120,9 +120,9 @@ texture = ExtResource("6_v3gtl")
 
 [node name="settingsButton" type="TextureButton" parent="Panel" unique_id=1475755997]
 layout_mode = 0
-offset_left = 454.07407
-offset_top = 8.148148
-offset_right = 550.0741
+offset_left = 435.55554
+offset_top = 8.148149
+offset_right = 531.55554
 offset_bottom = 104.14815
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.7, 0.7)
 texture_normal = ExtResource("7_nlive")
