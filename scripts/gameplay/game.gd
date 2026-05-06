@@ -3,7 +3,17 @@ extends Node2D
 var Enemy = preload("res://Scenes/game/Enemys.tscn")
 
 var difficulty: int = 0
-var words = ["apple", "banana", "cat"]
+var words = [
+	"apple","bread","chair","table","plant","water","light","sound","mouse","phone",
+	"glass","stone","brick","cloud","river","ocean","beach","grass","field","forest",
+	"tree","leaf","root","bark","fruit","berry","melon","grape","peach","lemon",
+	"sugar","spice","salt","honey","cream","butter","cheese","pizza","pasta","bread",
+	"drink","juice","soda","coffee","tea","cocoa","latte","mocha","cider","shake",
+	"happy","sad","angry","calm","brave","shy","proud","quick","smart","funny",
+	"laugh","smile","dream","think","learn","teach","write","read","draw","paint",
+	"build","break","throw","catch","drive","ride","walk","run","jump","climb",
+	"sleep","awake","start","begin","end","close","open","enter","leave","visit"
+]
 var current_word = ""
 var count: int = 0;
 @onready var player = $Player
