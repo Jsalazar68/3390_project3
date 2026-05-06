@@ -112,6 +112,11 @@ func _on_difficulty_timer_timeout() -> void:
 
 
 func _on_lose_area_area_entered(area: Area2D) -> void:
+	print("FINAL SCORE: ", count)
+	$wordInput.release_focus()
+	var score_node := $game_Over/score_display/score_num
+	score_node.text = str(count)
+	print("After:", score_node.text)
 	$game_Over.visible = true
 
 func _on_word_input_gui_input(event: InputEvent) -> void:

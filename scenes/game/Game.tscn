@@ -27,11 +27,13 @@ size = Vector2(1278.5, 36)
 script = ExtResource("1_iukft")
 
 [node name="background" type="Sprite2D" parent="." unique_id=1252129864]
+visible = false
 position = Vector2(638.5, 359.50003)
 scale = Vector2(1.0148438, 1.0236112)
 texture = ExtResource("2_lyhax")
 
 [node name="Label" type="Label" parent="." unique_id=1215664265]
+visible = false
 offset_left = 659.0
 offset_top = 601.0
 offset_right = 727.0
@@ -39,6 +41,7 @@ offset_bottom = 624.0
 text = "Enter to shoot"
 
 [node name="word_display" type="Label" parent="." unique_id=1215411359]
+visible = false
 offset_left = 341.0
 offset_top = 601.0
 offset_right = 477.0
@@ -58,7 +61,6 @@ wait_time = 1000.0
 autostart = true
 
 [node name="game_Over" type="Panel" parent="." unique_id=1727549270]
-visible = false
 offset_left = 433.0
 offset_top = 112.0
 offset_right = 719.0
@@ -75,12 +77,14 @@ text = "SCORE:"
 
 [node name="score_num" type="Label" parent="game_Over/score_display" unique_id=640579556]
 layout_mode = 0
-offset_left = 72.0
-offset_top = -1.0
-offset_right = 115.0
-offset_bottom = 22.0
+offset_left = 113.0
+offset_top = -2.0
+offset_right = 156.0
+offset_bottom = 40.0
+theme_override_font_sizes/font_size = 30
 
 [node name="submit_button" type="Button" parent="game_Over" unique_id=551229000]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.041
@@ -93,6 +97,7 @@ theme_override_font_sizes/font_size = 8
 text = "Submit"
 
 [node name="reset_button" type="Button" parent="game_Over" unique_id=22345123]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.021000002
@@ -105,6 +110,7 @@ theme_override_font_sizes/font_size = 8
 text = "restart"
 
 [node name="nameInput" type="LineEdit" parent="game_Over" unique_id=1690426926]
+visible = false
 layout_mode = 0
 offset_left = 108.0
 offset_top = 271.0
@@ -113,6 +119,7 @@ offset_bottom = 293.0
 theme_override_font_sizes/font_size = 10
 
 [node name="game over" type="Label" parent="game_Over" unique_id=112513693]
+visible = false
 layout_mode = 0
 offset_left = 47.0
 offset_top = 9.0
@@ -122,6 +129,7 @@ theme_override_font_sizes/font_size = 30
 text = "GAME OVER"
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=106504408]
+visible = false
 position = Vector2(559, 558)
 script = ExtResource("2_gl6un")
 
@@ -180,6 +188,15 @@ autostart = true
 visible = false
 
 [node name="Pause" parent="CanvasLayer" unique_id=1667373569 instance=ExtResource("3_gbxxb")]
+
+[node name="ScoreTracker" type="Label" parent="." unique_id=1768288638]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Tracker_num" type="Label" parent="ScoreTracker" unique_id=820897341]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
 
 [connection signal="gui_input" from="wordInput" to="." method="_on_word_input_gui_input"]
 [connection signal="text_submitted" from="wordInput" to="." method="_on_input_text_submitted"]
