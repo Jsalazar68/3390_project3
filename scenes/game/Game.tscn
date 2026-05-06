@@ -13,6 +13,11 @@
 [ext_resource type="AudioStream" uid="uid://bah4mi1xe4f86" path="res://audio/sfx/universfield-powerful-cannon-shot-352459.mp3" id="11_aptqa"]
 [ext_resource type="Texture2D" uid="uid://b4ie0bns7w4ir" path="res://assets/sprites/settingsCog.png" id="11_gynul"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_vg8p7"]
+font = ExtResource("6_gynul")
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gl6un"]
 
 [sub_resource type="GDScript" id="GDScript_nbkpf"]
@@ -75,25 +80,26 @@ scale = Vector2(1.0148438, 1.0236112)
 texture = ExtResource("2_lyhax")
 
 [node name="Label" type="Label" parent="." unique_id=1215664265]
-offset_left = 659.0
-offset_top = 601.0
-offset_right = 727.0
-offset_bottom = 624.0
+offset_left = 714.0
+offset_top = 637.0
+offset_right = 823.0
+offset_bottom = 660.0
 text = "Enter to shoot"
+label_settings = SubResource("LabelSettings_vg8p7")
 
 [node name="word_display" type="Label" parent="." unique_id=1215411359]
-offset_left = 341.0
-offset_top = 601.0
-offset_right = 477.0
-offset_bottom = 624.0
+offset_left = 374.0
+offset_top = 631.0
+offset_right = 519.0
+offset_bottom = 662.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_gl6un")
 
 [node name="wordInput" type="LineEdit" parent="." unique_id=1546481501]
-offset_left = 491.0
-offset_top = 597.0
-offset_right = 636.0
-offset_bottom = 628.0
+offset_left = 545.0
+offset_top = 630.0
+offset_right = 690.0
+offset_bottom = 661.0
 script = SubResource("GDScript_nbkpf")
 
 [node name="Timer" type="Timer" parent="." unique_id=1800865907]
@@ -112,10 +118,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -261.0
-offset_top = -261.0
-offset_right = 251.0
-offset_bottom = 251.0
+offset_left = -267.0
+offset_top = -257.0
+offset_right = 245.0
+offset_bottom = 255.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_365ku")
@@ -123,16 +129,16 @@ stretch_mode = 3
 
 [node name="NameHolders" type="Sprite2D" parent="game_Over" unique_id=588027899]
 texture_filter = 1
-position = Vector2(129, 149)
+position = Vector2(137.6, 148.8)
 scale = Vector2(0.6, 0.3)
 texture = ExtResource("4_aptqa")
 
 [node name="score_display" type="Label" parent="game_Over" unique_id=104131629]
 layout_mode = 0
-offset_left = 25.0
-offset_top = 130.0
-offset_right = 117.0
-offset_bottom = 166.0
+offset_left = 33.600006
+offset_top = 129.8
+offset_right = 125.600006
+offset_bottom = 165.8
 theme_override_font_sizes/font_size = 29
 text = "SCORE:"
 label_settings = SubResource("LabelSettings_gynul")
@@ -201,7 +207,7 @@ text = "submit"
 label_settings = SubResource("LabelSettings_2iokk")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=106504408]
-position = Vector2(559, 558)
+position = Vector2(625, 594)
 script = ExtResource("2_gl6un")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1226334007]
@@ -213,6 +219,7 @@ offset_left = -30.0
 offset_top = -24.0
 offset_right = 32.0
 offset_bottom = 25.0
+metadata/_edit_use_anchors_ = true
 
 [node name="bulletSpawn" type="Marker2D" parent="Player" unique_id=1954747163]
 position = Vector2(2, -37)
