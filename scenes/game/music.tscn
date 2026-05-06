@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://mg58kwxdpevh"]
+
+[ext_resource type="AudioStream" uid="uid://dn73ppkbqy4rm" path="res://audio/music/03. Castlevania (Extended Intro).mp3" id="1_bphr3"]
+
+[node name="Music" type="Node2D" unique_id=2064381115]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=690925253]
+stream = ExtResource("1_bphr3")
+autoplay = true
