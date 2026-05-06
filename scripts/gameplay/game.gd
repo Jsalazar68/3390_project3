@@ -1,11 +1,17 @@
 extends Node2D
 
+var Enemy = preload("res://Scenes/game/Enemy.tscn")
+
+
 var words = ["apple", "banana", "cat"]
 var current_word = ""
 var count: int = 0;
 @onready var player = $Player
-@onready var target_spawn = $targetSpawn
+#@onready var target_spawn = $targetSpawn
+@onready var enemy_container = $EnemyContainer
+@onready var spawn_enemy_container = $EnemySpawnContainer
 @onready var bullet_spawn = $Player/bulletSpawn
+@onready var spawn_timer = $SpawnTimer
 var bullet_scene = preload("res://scenes/game/Bullet.tscn")
 var target_scene = preload("res://scenes/game/Target.tscn")
 func shoot():
@@ -18,12 +24,15 @@ func shoot():
 	bullet.global_position = $Player/bulletSpawn.global_position
 
 
-func _ready():
+func _ready() -> void:
 	next_word()
+	randomize()
+	spawn_timer.start()
+	spawn_enemy()
 	$game_Over.visible = false
-	var target = target_scene.instantiate()
-	add_child(target)
-	target.global_position = target_spawn.global_position
+	#var target = target_scene.instantiate()
+	#add_child(target)
+	#target.global_position = target_spawn.global_position
 
 
 
@@ -76,3 +85,14 @@ func _on_submit_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scripts/gameplay/score.gd")
 	var name = $game_Over/nameInput.text
 	Network.send_score(name, count)
+
+
+func _on_spawn_timer_timeout() -> void:
+	spawn_enemy()
+	
+func spawn_enemy():
+	var enemy_instance = Enemy.instantiate()
+	var spawns = spawn_enemy_container.get_children()
+	var index = randi() % spawns.size()
+	enemy_container.add_child(enemy_instance)
+	enemy_instance.global_position = spawns[index].global_position

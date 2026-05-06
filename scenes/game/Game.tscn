@@ -119,6 +119,25 @@ position = Vector2(2, -37)
 [node name="targetSpawn" type="Marker2D" parent="." unique_id=362909597]
 position = Vector2(356, 48)
 
+[node name="EnemySpawnContainer" type="Node2D" parent="." unique_id=1013780922]
+
+[node name="Marker2D" type="Marker2D" parent="EnemySpawnContainer" unique_id=1541138547]
+position = Vector2(142, 3)
+
+[node name="Marker2D2" type="Marker2D" parent="EnemySpawnContainer" unique_id=1348182692]
+position = Vector2(455, 2)
+
+[node name="Marker2D3" type="Marker2D" parent="EnemySpawnContainer" unique_id=447744940]
+position = Vector2(740, -16)
+
+[node name="Marker2D4" type="Marker2D" parent="EnemySpawnContainer" unique_id=1205617543]
+position = Vector2(1052, 0)
+
+[node name="EnemyContainer" type="Node" parent="." unique_id=1794667496]
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=713875536]
+
 [connection signal="text_submitted" from="input" to="." method="_on_input_text_submitted"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="game_Over/submit_button" to="." method="_on_submit_button_pressed"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
