@@ -1,6 +1,6 @@
 extends Node2D
 
-var Enemy = preload("res://Scenes/game/Enemy.tscn")
+var Enemy = preload("res://Scenes/game/Enemys.tscn")
 
 var difficulty: int = 0
 var words = ["apple", "banana", "cat"]
