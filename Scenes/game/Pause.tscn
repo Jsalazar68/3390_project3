@@ -47,3 +47,13 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "PAUSED"
 label_settings = SubResource("LabelSettings_fhkms")
+
+[node name="ContinueButton" type="Button" parent="." unique_id=793904603]
+layout_mode = 0
+offset_left = 510.0
+offset_top = 402.0
+offset_right = 790.0
+offset_bottom = 496.0
+text = "CONTINUE"
+
+[connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]

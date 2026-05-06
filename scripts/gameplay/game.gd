@@ -31,6 +31,8 @@ func _ready() -> void:
 	spawn_timer.start()
 	spawn_enemy()
 	$game_Over.visible = false
+	$PauseMenu.hide()
+
 	#var target = target_scene.instantiate()
 	#add_child(target)
 	#target.global_position = target_spawn.global_position
@@ -126,3 +128,14 @@ func _on_submit_button_pressed() -> void:
 
 func _on_reset_button_pressed() -> void:
 	get_tree().reload_current_scene()
+
+
+func _on_pause_button_pressed() -> void:
+	get_tree().paused = true
+	$PauseMenu.show()
+
+
+
+func _on_continue_button_pressed() -> void:
+	$PauseMenu.hide()
+	get_tree().paused = false
