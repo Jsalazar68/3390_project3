@@ -107,6 +107,7 @@ func _on_difficulty_timer_timeout() -> void:
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #func _on_lose_area_body_entered(body: Node2D) -> void:
 	#$game_Over.visible = true
 
@@ -114,9 +115,14 @@ func _on_difficulty_timer_timeout() -> void:
 func _on_lose_area_area_entered(area: Area2D) -> void:
 	$game_Over.visible = true
 =======
+=======
+>>>>>>> 64386b7ded582c511060c25d77ff2138975b7228
 func _on_word_input_gui_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed:
 		if event.keycode == KEY_LEFT or event.keycode == KEY_RIGHT:
 			get_viewport().set_input_as_handled()
 	
+<<<<<<< HEAD
 >>>>>>> 9f2c091ed005d86e9bc2594dce0573d3de98e455
+=======
+>>>>>>> 64386b7ded582c511060c25d77ff2138975b7228
