@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://c54ibeue7fonp"]
+
+[ext_resource type="Script" uid="uid://kmrh74w5v3b2" path="res://scripts/gameplay/pause.gd" id="1_v6a0q"]
+
+[node name="Pause" type="Control" unique_id=1667373569]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v6a0q")
+
+[node name="pause_Panel" type="Panel" parent="." unique_id=498749541]
+layout_mode = 0
+offset_left = 735.0
+offset_top = 179.0
+offset_right = 802.0
+offset_bottom = 228.0
+
+[node name="pause_Label" type="Label" parent="pause_Panel" unique_id=1998957433]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "PAUSED"
