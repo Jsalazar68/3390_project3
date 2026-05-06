@@ -22,7 +22,7 @@ func shoot():
 	print("Bullet created:", bullet)
 	
 	get_tree().current_scene.add_child(bullet)
-	bullet.global_position = $Player/bulletSpawn.global_position
+	bullet.global_position = $Player/bulletSpawn.global_position + Vector2(0, -57)
 
 
 func _ready() -> void:
