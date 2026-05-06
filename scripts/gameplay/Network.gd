@@ -48,5 +48,6 @@ func _on_request_completed(result, response_code, headers, body):
 	var leaderboard = JSON.parse_string(text)
 	print("Server response:", text)
 	print("Leaderboard: ", leaderboard)
+
 	leaderboard_data = leaderboard
 	
